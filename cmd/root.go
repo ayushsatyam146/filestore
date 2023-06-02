@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 )
 
@@ -13,5 +14,6 @@ var (
 )
 
 func Execute() error {
+	godotenv.Load()
 	return rootCmd.Execute()
 }

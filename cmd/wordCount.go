@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -36,7 +37,7 @@ var wcCmd = &cobra.Command{
 	Short: "word count command",
 	Long:  "word count command",
 	Run: func(cmd *cobra.Command, args []string) {
-		baseURL := "http://localhost:8080/wordcount"
+		baseURL := os.Getenv("BASE_URL") + "/wordcount"
 		wordCountCLIHandler(baseURL)
 	},
 }

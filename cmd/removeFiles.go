@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -13,7 +14,7 @@ func init() {
 
 func deleteCLIHandler(args []string) {
 	fileName := args[0]
-	url := "http://localhost:8080/deletefile"
+	url := os.Getenv("BASE_URL") + "/deletefile"
 	req, err := http.NewRequest("POST", url, nil)
 	if err != nil {
 		fmt.Println("Failed to create HTTP request:", err)

@@ -50,8 +50,9 @@ func createFileHashJSON(args []string) []byte {
 }
 
 func filterFilesToUpload(jsonFileHashData []byte) map[string]interface{} {
+	baseURL := os.Getenv("BASE_URL")
+	url := baseURL + "/getHash"
 
-	url := "http://localhost:8080/getHash"
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonFileHashData))
 	if err != nil {
 		log.Fatal(err)
@@ -77,7 +78,8 @@ func filterFilesToUpload(jsonFileHashData []byte) map[string]interface{} {
 }
 
 func uploadFilesToServer(files map[string]interface{}) {
-	url := "http://localhost:8080/upload"
+	baseURL := os.Getenv("BASE_URL")
+	url := baseURL + "/upload"
 
 	for key, value := range files {
 		// key is file name and value is isPresent boolean
