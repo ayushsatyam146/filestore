@@ -10,8 +10,6 @@ import (
 
 func init() {
 	rootCmd.AddCommand(wcCmd)
-	wcCmd.Flags().StringP("order", "s", "dsc", "sort order")
-	wcCmd.Flags().StringP("limit", "l", "10", "limit")
 }
 
 func wordCountCLIHandler(baseURL string) {
@@ -38,15 +36,7 @@ var wcCmd = &cobra.Command{
 	Short: "word count command",
 	Long:  "word count command",
 	Run: func(cmd *cobra.Command, args []string) {
-		sortorder, _ := cmd.Flags().GetString("order")
-		limit, _ := cmd.Flags().GetString("limit")
 		baseURL := "http://localhost:8080/wordcount"
-		if sortorder != "" {
-			baseURL = baseURL + "?sortOrder=" + sortorder
-		}
-		if limit != "" {
-			baseURL = baseURL + "&limit=" + limit
-		}
 		wordCountCLIHandler(baseURL)
 	},
 }
