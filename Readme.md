@@ -8,7 +8,7 @@ A CLI interface to an HTTP file server with multiple available commands. This CL
 - run `go build`
 - use `./filestore cmd...` where cmd represents different commands listed below
 
-- Note : By default it uses http://localhost:8080 as server URL. If you deploy server somewhere else like a k8s cluster the please change the URL in .env before running `go build`
+- Note : Add a .env file with BASE_URL=\<YOUR_SERVER_URL> before running `go build`
 
 ## Usage
 
