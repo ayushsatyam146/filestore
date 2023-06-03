@@ -9,6 +9,7 @@ A CLI interface to an HTTP file server with multiple available commands. This CL
 - use `./filestore cmd...` where cmd represents different commands listed below
 
 - Note : Add a .env file with BASE_URL=\<YOUR_SERVER_URL> before running `go build`
+- To run the server visit [filestore-server](https://github.com/ayushsatyam146/filestore-server)
 
 ## Usage
 
@@ -35,11 +36,13 @@ A CLI interface to an HTTP file server with multiple available commands. This CL
 ```
 ./filestore update a.txt
 ```
+
 #### `wc` command will list the count of all the words present in all the files
 
 ```
 ./filestore wc
 ```
+
 #### `freq-words` command will list top 10 most frequently used words by default. You can change the order and number of responses
 
 ```
